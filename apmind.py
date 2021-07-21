@@ -29,7 +29,7 @@ def step_one():
     response = requests.get('http://yjsy.buct.edu.cn:8080/pyxx/login.aspx', headers=headers)
     cookies = requests.utils.dict_from_cookiejar(response.cookies)
     doc = pq(response.text)
-    VIEWSTATE = doc("input")[0].valueq
+    VIEWSTATE = doc("input")[0].value
     VIEWSTATEGENERATOR = doc("input")[1].value
     EVENTVALIDATION = doc("input")[2].value
     return (cookies, VIEWSTATE, VIEWSTATEGENERATOR, EVENTVALIDATION)
